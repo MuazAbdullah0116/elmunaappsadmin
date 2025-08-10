@@ -30,7 +30,7 @@ const SelectSurah: React.FC<SelectSurahProps> = ({
       </SelectTrigger>
       <SelectContent className="bg-gray-900 border-emerald-700 text-white">
         {availableSurahs.map((surat) => (
-          <SelectItem key={surat.value} value={surat.value} className="hover:bg-emerald-700 focus:bg-emerald-700 text-white">
+          <SelectItem key={surat.value} value={surat.value} className="hover:bg-emerald-700 focus:bg-emerald-700 text-black">
             {surat.label}
           </SelectItem>
         ))}
