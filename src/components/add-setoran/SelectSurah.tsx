@@ -1,59 +1,42 @@
-import React from "react";
-import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
+
+import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 interface Surah {
-  nomor: number;
-  nama: string;
+  label: string;
+  value: string;
 }
 
 interface SelectSurahProps {
   value: string;
-  onChange: (value: string) => void;
+  onChange: (v: string) => void;
   availableSurahs: Surah[];
   disabled?: boolean;
-  className?: string;
-  itemClassName?: string;
 }
 
 const SelectSurah: React.FC<SelectSurahProps> = ({
   value,
   onChange,
   availableSurahs,
-  disabled,
-  className,
-  itemClassName = "",
+  disabled
 }) => (
-  <Select value={value} onValueChange={onChange} disabled={disabled}>
-    <SelectTrigger className={className}>
-      <SelectValue placeholder="Pilih Surat" />
-    </SelectTrigger>
-    <SelectContent>
-      {availableSurahs.map((surah) => (
-        <SelectItem
-          key={surah.nomor}
-          value={surah.nama}
-          className={itemClassName}
-        >
-          {surah.nama}
-        </SelectItem>
-      ))}
-    </SelectContent>
-  </Select>
+  <div className="space-y-2">
+    <Label htmlFor="surat" className="text-white font-medium">
+      Surat *
+    </Label>
+    <Select value={value} onValueChange={onChange} disabled={disabled}>
+      <SelectTrigger className="bg-background border border-emerald-600 text-white hover:border-emerald-400">
+        <SelectValue placeholder={disabled ? "Pilih juz terlebih dahulu" : "Pilih surat"} />
+      </SelectTrigger>
+      <SelectContent className="bg-gray-900 border-emerald-700 text-white">
+        {availableSurahs.map((surat) => (
+          <SelectItem key={surat.value} value={surat.value} className="hover:bg-emerald-700 focus:bg-emerald-700 text-white">
+            {surat.label}
+          </SelectItem>
+        ))}
+      </SelectContent>
+    </Select>
+  </div>
 );
 
 export default SelectSurah;
-
-<SelectJuz
-  value={formData.juz}
-  onChange={...}
-  className="..."
-  itemClassName="hover:bg-gray-300 data-[state=checked]:bg-gray-300 text-black"
-/>
-<SelectSurah
-  value={formData.surat}
-  onChange={...}
-  availableSurahs={availableSurahs}
-  disabled={!formData.juz}
-  className="..."
-  itemClassName="hover:bg-gray-300 data-[state=checked]:bg-gray-300 text-black"
-/>

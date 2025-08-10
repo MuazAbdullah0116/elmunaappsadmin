@@ -1,16 +1,28 @@
+
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import React from "react";
 
-const AddSetoranExaminerInput = ({ diujiOleh, onDiujiOlehChange, className }) => (
-  <div className="space-y-2">
-    <label htmlFor="diuji_oleh" className="text-white font-medium">Diuji Oleh</label>
-    <input
-      id="diuji_oleh"
+interface AddSetoranExaminerInputProps {
+  diujiOleh: string;
+  onDiujiOlehChange: (v: string) => void;
+}
+
+const AddSetoranExaminerInput: React.FC<AddSetoranExaminerInputProps> = ({
+  diujiOleh,
+  onDiujiOlehChange,
+}) => (
+  <div className="mb-6">
+    <Label htmlFor="diujiOleh" className="block text-white text-sm font-bold mb-2">
+      Diuji Oleh *
+    </Label>
+    <Input
       type="text"
-      placeholder="Nama penguji"
+      id="diujiOleh"
+      placeholder="Masukkan nama penguji"
       value={diujiOleh}
-      onChange={e => onDiujiOlehChange(e.target.value)}
-      className={className}
-      required
+      onChange={(e) => onDiujiOlehChange(e.target.value)}
+      className="w-full bg-background border-border text-white placeholder:text-white/50"
     />
   </div>
 );

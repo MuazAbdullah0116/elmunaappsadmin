@@ -149,7 +149,6 @@ const AddSetoran = () => {
               <AddSetoranDatePicker
                 tanggal={formData.tanggal}
                 onTanggalChange={(date) => handleInputChange("tanggal", date || new Date())}
-                className="bg-white bg-opacity-20 border border-emerald-300 text-white placeholder:text-white/70 focus:border-emerald-400"
               />
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -161,8 +160,6 @@ const AddSetoran = () => {
                     handleInputChange("awal_ayat", "");
                     handleInputChange("akhir_ayat", "");
                   }}
-                  className="bg-white bg-opacity-20 border border-emerald-300 text-white placeholder:text-white/70 focus:border-emerald-400"
-                  itemClassName="hover:bg-gray-300 data-[state=checked]:bg-gray-300 text-black"
                 />
 
                 <SelectSurah
@@ -174,8 +171,6 @@ const AddSetoran = () => {
                   }}
                   availableSurahs={availableSurahs}
                   disabled={!formData.juz}
-                  className="bg-white bg-opacity-20 border border-emerald-300 text-white placeholder:text-white/70 focus:border-emerald-400"
-                  itemClassName="hover:bg-gray-300 data-[state=checked]:bg-gray-300 text-black"
                 />
               </div>
 
@@ -215,7 +210,6 @@ const AddSetoran = () => {
               <AddSetoranExaminerInput
                 diujiOleh={formData.diuji_oleh}
                 onDiujiOlehChange={(value) => handleInputChange("diuji_oleh", value)}
-                className="bg-white bg-opacity-20 border border-emerald-300 text-white placeholder:text-white/70 focus:border-emerald-400"
               />
 
               <Button
