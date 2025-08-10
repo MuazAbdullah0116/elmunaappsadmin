@@ -162,6 +162,7 @@ const AddSetoran = () => {
                     handleInputChange("akhir_ayat", "");
                   }}
                   className="bg-white bg-opacity-20 border border-emerald-300 text-white placeholder:text-white/70 focus:border-emerald-400"
+                  itemClassName="hover:bg-gray-300 data-[state=checked]:bg-gray-300 text-black"
                 />
 
                 <SelectSurah
@@ -174,6 +175,7 @@ const AddSetoran = () => {
                   availableSurahs={availableSurahs}
                   disabled={!formData.juz}
                   className="bg-white bg-opacity-20 border border-emerald-300 text-white placeholder:text-white/70 focus:border-emerald-400"
+                  itemClassName="hover:bg-gray-300 data-[state=checked]:bg-gray-300 text-black"
                 />
               </div>
 
