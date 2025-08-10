@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
@@ -13,6 +12,14 @@ interface AddSetoranDatePickerProps {
 }
 
 const AddSetoranDatePicker: React.FC<AddSetoranDatePickerProps> = ({ tanggal, onTanggalChange }) => {
+  const tanggalString = tanggal ? tanggal.toISOString().split("T")[0] : "";
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    const newDate = value ? new Date(value) : undefined;
+    onTanggalChange(newDate);
+  };
+
   return (
     <div className="mb-4">
       <Label htmlFor="tanggal" className="block text-white text-sm font-bold mb-2">
@@ -41,6 +48,12 @@ const AddSetoranDatePicker: React.FC<AddSetoranDatePickerProps> = ({ tanggal, on
             }
             initialFocus
             className="p-3 pointer-events-auto"
+          />
+          <input
+            type="date"
+            value={tanggalString}
+            onChange={handleChange}
+            className="bg-white bg-opacity-20 border border-emerald-300 text-white placeholder:text-white/70 focus:border-emerald-400 rounded px-3 py-2 w-full"
           />
         </PopoverContent>
       </Popover>

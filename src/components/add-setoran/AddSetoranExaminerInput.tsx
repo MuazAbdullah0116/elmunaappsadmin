@@ -1,4 +1,3 @@
-
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import React from "react";
@@ -19,10 +18,10 @@ const AddSetoranExaminerInput: React.FC<AddSetoranExaminerInputProps> = ({
     <Input
       type="text"
       id="diujiOleh"
-      placeholder="Masukkan nama penguji"
+      placeholder="Nama Penguji"
       value={diujiOleh}
       onChange={(e) => onDiujiOlehChange(e.target.value)}
-      className="w-full bg-background border-border text-white placeholder:text-white/50"
+      className="bg-white bg-opacity-20 border border-emerald-300 text-white placeholder:text-white/70 focus:border-emerald-400 rounded px-3 py-2 w-full"
     />
   </div>
 );
