@@ -25,12 +25,12 @@ const SelectSurah: React.FC<SelectSurahProps> = ({
       Surat *
     </Label>
     <Select value={value} onValueChange={onChange} disabled={disabled}>
-      <SelectTrigger className="bg-background border border-emerald-600 text-white hover:border-emerald-400">
+      <SelectTrigger className="bg-background border border-emerald-600 text-black hover:border-emerald-400">
         <SelectValue placeholder={disabled ? "Pilih juz terlebih dahulu" : "Pilih surat"} />
       </SelectTrigger>
       <SelectContent className="bg-gray-900 border-emerald-700 text-white">
         {availableSurahs.map((surat) => (
-          <SelectItem key={surat.value} value={surat.value} className="hover:bg-emerald-700 focus:bg-emerald-700 text-black">
+          <SelectItem key={surat.value} value={surat.value} className="hover:bg-emerald-700 focus:bg-emerald-700 text-white">
             {surat.label}
           </SelectItem>
         ))}
